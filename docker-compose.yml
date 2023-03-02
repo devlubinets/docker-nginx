@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  http:
+    container_name: http-edu
+    image: nginx:latest
+    volumes:
+      - ./:/usr/share/nginx/html
+      - ./conf.d/:/etc/nginx/conf.d/:ro
+    ports:
+      - "49001:80"
+    networks:
+      edu-network:
+
+networks:
+  edu-network:
+
+volumes:
+  edu-volume:
